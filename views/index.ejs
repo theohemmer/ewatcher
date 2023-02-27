@@ -175,7 +175,7 @@
                         </div>
                     </div>
                     <div class="row h-25">
-                        <h1>EIPs de Nancy</h1>
+                        <h1>EIPs avec des membres de Nancy</h1>
                         <div class="col">
                             <% for (const eip of fromNancy) { %>
                                 <% if (eip.isDeleted) { %>
@@ -221,7 +221,7 @@
                                 <button class="btn btn-primary mh-100 bluebtn" style="width: 3%;" type="button" data-bs-toggle="collapse" data-bs-target="#<%= eip.bulkName + "-collapse"%>" aria-expanded="false" aria-controls="<%= eip.bulkName %>"><i class="bi bi-people-fill"></i></button>
                             </div>
                         </div>
-                        <iframe src="<%= eip.url %>" class="h-100 w-100"></iframe>
+                        <iframe src="<%= eip.url.replace(/^http/g, 'https') %>" class="h-100 w-100"></iframe>
                     </div>
                 <% } %>
             </div>
