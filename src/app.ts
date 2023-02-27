@@ -57,7 +57,7 @@ app.use("/", fetchEIPs, (req, res) => {
     const fromNancy = eips.filter(x => { return (x.members.find(m => nancyEmails.includes(m.login)) != undefined) } )
     res.render("index", {
         eips: req.eips,
-        nextFetch: req.nextFetch,
+        nextRefresh : req.nextFetch,
         usingAccount: grabber.getAccountMail(),
         published: eips.filter(x => x.websitePublished && !x.isDeleted),
         nonPublished: eips.filter(x => !x.websitePublished && !x.isDeleted),
