@@ -221,7 +221,7 @@
                                 <button class="btn btn-primary mh-100 bluebtn" style="width: 3%;" type="button" data-bs-toggle="collapse" data-bs-target="#<%= eip.bulkName + "-collapse"%>" aria-expanded="false" aria-controls="<%= eip.bulkName %>"><i class="bi bi-people-fill"></i></button>
                             </div>
                         </div>
-                        <iframe src="<%= eip.url.replace(/^http/g, 'https') %>" class="h-100 w-100"></iframe>
+                        <iframe src="<%= eip.url.replace(/^http/g, 'https') + '/' %>" class="h-100 w-100"></iframe>
                     </div>
                 <% } %>
             </div>
