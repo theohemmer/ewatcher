@@ -32,7 +32,7 @@ const fetchEIPs = async (req: Request, res: Response, next: NextFunction) => {
         }
     }
     const actDate = Math.floor(new Date().getTime() / 1000);
-    let nextFetch = actDate - (lastFetch + (60 * 60 * 24 * 3));
+    let nextFetch :number = (lastFetch + (60 * 60 * 24 * 3)) - actDate;
     if (eips == null || nextFetch <= 0) {
         eips = await grabber.fetchGroups();
         lastFetch = actDate;
@@ -40,7 +40,7 @@ const fetchEIPs = async (req: Request, res: Response, next: NextFunction) => {
         req.eips = eips;
         next();
     }
-    req.nextFetch = nextFetch;
+    req.nextFetch = nextFetch.toString();
     req.eips = eips;
     next();
 }
