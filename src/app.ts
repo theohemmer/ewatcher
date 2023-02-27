@@ -8,6 +8,8 @@ import { EIP } from "./utils/ewatcher";
 const app = express();
 const grabber = new Grabber();
 
+let lastFetch = null;
+
 let eips :EIP[] = null
 
 app.set("views", "./views");
@@ -29,11 +31,16 @@ const fetchEIPs = async (req: Request, res: Response, next: NextFunction) => {
             return res.render("auth", {err:""});
         }
     }
-    if (eips == null) {
+    const actDate = Math.floor(new Date().getTime() / 1000);
+    let nextFetch = actDate - (lastFetch + (60 * 60 * 24 * 3));
+    if (eips == null || nextFetch <= 0) {
         eips = await grabber.fetchGroups();
+        lastFetch = actDate;
+        nextFetch = actDate - (lastFetch + (60 * 60 * 24 * 3));
         req.eips = eips;
         next();
     }
+    req.nextFetch = nextFetch;
     req.eips = eips;
     next();
 }
@@ -50,6 +57,7 @@ app.use("/", fetchEIPs, (req, res) => {
     const fromNancy = eips.filter(x => { return (x.members.find(m => nancyEmails.includes(m.login)) != undefined) } )
     res.render("index", {
         eips: req.eips,
+        nextFetch: req.nextFetch,
         usingAccount: grabber.getAccountMail(),
         published: eips.filter(x => x.websitePublished && !x.isDeleted),
         nonPublished: eips.filter(x => !x.websitePublished && !x.isDeleted),

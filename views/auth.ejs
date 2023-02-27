@@ -13,10 +13,17 @@
             <% } else if (err="body") { %>
                 <p>Invalid body</p>
         <% }} %>
+        <p>(Admin setup) Lab EIP credentials</p>
         <form action="/" method="POST">
             <input type="email" placeholder="email" name="email"/>
             <input type="password" placeholder="password" name="password"/>
             <input type="submit"/>
         </form>
+        <br/><br/>
+        <h3>About this form:</h3>
+        <p>If you are an user of this website, you probably don't want to enter your LabEIP credentials here.</p>
+        <p>Althought I made it safe for myself so nothing is stored anywhere, all APIs call are made using the credentials given here</p>
+        <p>You can send me an email at <a href="mailto:theo.hemmer@epitech.eu">theo.hemmer@epitech.eu</a> and I'll setup this as soon as possible</p>
+        <p>If you are really in a hurry to view this site you can enter your credentials if you want, but thoses will be used to fetch data until next server startup</p>
     </body>
 </html>

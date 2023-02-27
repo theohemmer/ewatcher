@@ -190,10 +190,11 @@
                     </div>
                 </div>
                 <div style="position: absolute; left: 0; top: 0; color: white; font-size: small;">
-                    <span>Using <%= usingAccount %></span>
+                    <span>Using <%= usingAccount %></span><br/>
+                    <span>Next refresh in <%= nextRefresh %> seconds.</span>
                 </div>
                 <div style="position: absolute; right: 0; bottom: 0; color: white; font-size: small;">
-                    <span>Background from <a href="https://google.com" style="color:coral;">this site</a> because why would I ever want to make it myself?</span>
+                    <span>Background from <a href="https://codepen.io/mohaiman/pen/MQqMyo" style="color:coral;">this site</a> because why would I ever want to make it myself?</span>
                 </div>
                 <ul class="circles" style="z-index: 0"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>
             </div>
@@ -220,7 +221,7 @@
                                 <button class="btn btn-primary mh-100 bluebtn" style="width: 3%;" type="button" data-bs-toggle="collapse" data-bs-target="#<%= eip.bulkName + "-collapse"%>" aria-expanded="false" aria-controls="<%= eip.bulkName %>"><i class="bi bi-people-fill"></i></button>
                             </div>
                         </div>
-                        <iframe src="https://sfsfjhqsfkbkhhkHFJKSDHDFKJLFBhkfshdfkjsd.com/?url=<%= eip.url %>" class="h-100 w-100"></iframe>
+                        <iframe src="<%= eip.url %>" class="h-100 w-100"></iframe>
                     </div>
                 <% } %>
             </div>
