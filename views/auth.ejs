@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>EWatcher</title>
+    </head>
+    <body>
+        <% if (err) {
+            if (err == "creds") {%>
+                <p>Invalid creds</p>
+            <% } else if (err="body") { %>
+                <p>Invalid body</p>
+        <% }} %>
+        <form action="/" method="POST">
+            <input type="email" placeholder="email" name="email"/>
+            <input type="password" placeholder="password" name="password"/>
+            <input type="submit"/>
+        </form>
+    </body>
+</html>

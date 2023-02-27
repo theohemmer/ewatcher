@@ -1,0 +1,7 @@
+node_modules
+coverage
+.env
+build/
+docker-compose.yml
+nodemon.json
+src/seed.ts
