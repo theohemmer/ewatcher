@@ -237,7 +237,7 @@
                                 <button class="btn btn-primary mh-100 bluebtn" style="width: fit-content;" type="button" data-bs-toggle="collapse" data-bs-target="#<%= eip.bulkName + "-collapse"%>" aria-expanded="false" aria-controls="<%= eip.bulkName %>"><i class="bi bi-people-fill"></i></button>
                             </div>
                         </div>
-                        <iframe src="<%= eip.url.replace(/^http/g, 'https') + '/' %>" class="h-100 w-100" style="display: none" onload="loadEnded(this)"></iframe>
+                        <iframe src="<%= eip.url.replace(/^http/g, 'https') + '/' %>" class="h-100 w-100" onload="loadEnded(this)"></iframe>
                     </div>
                 <% } %>
             </div>
@@ -272,7 +272,7 @@
             }
             constantScroll();
             function loadEnded(frame) {
-                if (endeds < totals) {
+                if (endeds < 1) {
                     setTimeout(() => {
                         endeds++;
                         frame.style.display = '';
@@ -283,7 +283,7 @@
                         el.style.width = progress + '%';
                     }, 500);
                 } else if (endeds != -1000000) {
-                    if (endeds >= totals) {
+                    if (endeds >= 1) {
                         endeds = -1000000;
                         setTimeout(() => {document.getElementById('loader').style.display = 'none';}, 500);
                     }
