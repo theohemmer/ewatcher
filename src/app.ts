@@ -65,13 +65,7 @@ const fetchEIPs = async (req: Request, res: Response, next: NextFunction) => {
     next();
 }
 
-const nancyEmails = [
-    "arthur.junges@epitech.eu","alexandre.boul@epitech.eu","alexandre.burger@epitech.eu","benjamin.lafouge@epitech.eu","mehdi.meknaci@epitech.eu","virgile.agnel@epitech.eu",
-    "quentin.marchand@epitech.eu","charles1.hu@epitech.eu","francois.rolland@epitech.eu","maxime.saidi@epitech.eu","raphael.mandica@epitech.eu","theo.grosjean@epitech.eu","thomas.moreau@epitech.eu",
-    "samuel.palmer@epitech.eu","abdelmalik.achite-henni@epitech.eu","mathieu.blais@epitech.eu",
-    "maxence.marques-pierre@epitech.eu","eliott.ferry@epitech.eu","floriane.mantey@epitech.eu","jean.gauthier-damioli@epitech.eu","jules.martin@epitech.eu","pierre.brun@epitech.eu","pierre.fricker@epitech.eu","thibaut.humbert@epitech.eu","tom.wederich@epitech.eu",
-    "pierre.perrin@epitech.eu","aurelien.le-camus@epitech.eu","aurelien.schulz@epitech.eu","gabriel.huguenin-dumittan@epitech.eu","theo.hemmer@epitech.eu","yann.julitte@epitech.eu","yohann.cormier@epitech.eu",
-]
+const nancyEmails = process.env.LOGINS.split(/;/g);
 
 app.get("/isLoading", (req, res) => {
     return res.status(200).send(isLoading);

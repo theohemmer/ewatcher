@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 export type EIP = {
     name: string,
     bulkName: string,
@@ -27,7 +29,7 @@ export class EWatcher {
             isDeleted: true,
             websitePublished: true,
             members: [],
-            url: "https://eip.eitech.eu/2024/" + name.toLocaleLowerCase().split(" ").join("") + "/"
+            url: "https://eip.eitech.eu/" + process.env.PROMO + "/" + name.toLocaleLowerCase().split(" ").join("") + "/"
         })
     }
 }

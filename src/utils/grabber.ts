@@ -2,6 +2,7 @@ import axios, { AxiosInstance } from "axios";
 import { wrapper } from "axios-cookiejar-support";
 import { CookieJar } from "tough-cookie";
 import { EIP } from "./ewatcher";
+import "dotenv/config";
 
 export default class Grabber {
 
@@ -61,7 +62,7 @@ export default class Grabber {
                     page: 1,
                     limit: 200,
                     sort: "-promotion,fancyName",
-                    promotion: 2024
+                    promotion: process.env.PROMO
                 },
                 headers: {
                     "x-api-token": this.logInfo?.token || "QuTH5nMG1ssOQNx38hI2aPP7pfKC7V5GLQsHhJqPygaI2hC4-uRFk-FrKQo7Eryj"
